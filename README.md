@@ -1,4 +1,4 @@
-# Goblin Sax SDK
+# Goblin Sax Loan Widget
 
 
 A loan widget wirtten in React and Typescript that utilizes the [Goblin Sax SDK](https://github.com/GoblinSax/gs-sdk) to provide instant loan on whitelisted NFTs. The widget is implemented in React and meant to used as a React component. The widget requires Goblin Sax API Key. [Contact Us](https://discord.com/invite/GS6rvrvb9B) if you don't have it.
