@@ -136,12 +136,12 @@ const LoansCardContentStep1 = ({ handleButtons, loansWidgetAssetStates,openWhite
                 width: "100%",
             }}
         >
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", flexWrap:'wrap' }}>
                 <Typography
                     variant="h2"
                     sx={{ /*textDecoration:'underline', cursor:'pointer',*/ width: "fit-content", my: 1, whiteSpace: "pre-wrap" }}
                 >
-                    {assets.length === 0 ? "No " : "Select a "}
+                    {assets.length === 0 ? "No" : "Select a"}
                 </Typography>
                 <Typography
                     variant="h2"
@@ -153,16 +153,17 @@ const LoansCardContentStep1 = ({ handleButtons, loansWidgetAssetStates,openWhite
                         textTransform: "uppercase",
                         cursor: "pointer",
                         animation: "pulse 1s infinite",
+                        whiteSpace: "pre-wrap",
                         '&:hover': {
                             color: theme => theme.palette.primary.dark,
                         }
                     }}
                     onClick={openWhitelistPopup}
                 >
-                    {"whitelisted"}
+                    {" whitelisted "}
                 </Typography>
                 <Typography variant="h2" sx={{ width: "fit-content", my: 1, whiteSpace: "pre-wrap" }}>
-                    {assets.length === 0 ? " assets found" : " asset"}
+                    {assets.length === 0 ? "assets found" : "asset"}
                 </Typography>
             </Box>
             <Box
