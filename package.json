@@ -1,6 +1,6 @@
 {
   "name": "@goblinsax/loan-widget",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A loan widget wirtten in React and Typescript that utilize the Goblin Sax SDK to provide instant loan on whitelisted NFTs.",
   "scripts": {
     "rollup": "rollup -c"
@@ -34,7 +34,8 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.5.0",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "jest-environment-jsdom": "^29.4.1"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -50,7 +51,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "ethers": "^5.7.2",
-    "jest-environment-jsdom": "^29.4.1",
+
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-resize-detector": "^8.0.3"
