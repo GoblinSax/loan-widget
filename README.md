@@ -26,7 +26,7 @@ The action color can also be configured. The default action color is green.
 ## Example
 
 [Demo](https://loan-widget-example.vercel.app/) <br />
-[Demo Github](https://github.com/GoblinSax/loan-widget-example)
+[Demo Repo](https://github.com/GoblinSax/loan-widget-example)
 
 
 ## Getting Started
