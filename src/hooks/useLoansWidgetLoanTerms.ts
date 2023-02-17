@@ -77,12 +77,15 @@ const useLoansWidgetLoanTerms = (GSSDK:IGSSDK)  => {
         const APRdict = loanTerms.APRdict;
         if(!APRdict) return;
         const APR = APRdict[loanDuration][loanAmount];
+        if(!loanTerms.repaymentAmountDict) return;
+        const repaymentAmount = loanTerms.repaymentAmountDict[loanDuration][loanAmount];
+        const estimateInterest = (((repaymentAmount - loanAmount) / loanAmount));
             setLoanTerms((prev)=>{
                 if(prev.repaymentAmountDict){
                     return {
                         ...prev,
                         repaymentAmount: prev.repaymentAmountDict[loanDuration][loanAmount],
-                        estimateInterest: APR/100 * loanDuration/365 * loanAmount
+                        estimateInterest: estimateInterest
                     }
                 }
                 else{
