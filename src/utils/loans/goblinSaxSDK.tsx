@@ -68,6 +68,7 @@ const goblinSaxSDK = (signerFromProps: ethers.providers.JsonRpcSigner, APIkey: s
             'world-of-women-nft': 'png'
         }
 
+        // return `/whitelist/${slug}.${slugToImgFormat[slug as keyof typeof slugToImgFormat]}`
         return `https://sax-machine-goerli.vercel.app/whitelist/${slug}.${slugToImgFormat[slug as keyof typeof slugToImgFormat]}`
     }
 
@@ -107,9 +108,17 @@ const goblinSaxSDK = (signerFromProps: ethers.providers.JsonRpcSigner, APIkey: s
             throw new Error("GoblinSaxAPI not found");
         }
         
-        const owned_nfts = await fetch(`https://api.opensea.io/api/v1/assets?owner=${signer._address}`);
-        const owned_nfts_json = await owned_nfts.json();
-        const onwed_assets = owned_nfts_json.assets;
+        let owned_nfts = await fetch(`https://api.opensea.io/api/v1/assets?owner=${signer._address}`);
+        let owned_nfts_json = await owned_nfts.json();
+        let onwed_assets = owned_nfts_json.assets;
+
+        while(owned_nfts_json.next){
+            const owned_nfts_next =  await fetch(`https://api.opensea.io/api/v1/assets?owner=${signer._address}&cursor=${owned_nfts_json.next}`);
+            owned_nfts_json = await owned_nfts_next.json();
+            onwed_assets = [...onwed_assets, ...owned_nfts_json.assets]
+            // await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+
         const whitelist = (await getWhiteList()) as [
             {
                 slug: string;
